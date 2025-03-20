@@ -55,15 +55,15 @@ const JobsPage = () => {
   // Sort jobs based on currentSort
   const sortJobs = (jobsToSort) => {
     if (!jobsToSort) return [];
-    
+  
     switch (currentSort) {
-      case 'newest':
-        return [...jobsToSort].sort((a, b) => new Date(b.postedDate) - new Date(a.postedDate));
-      case 'latest':
-        return [...jobsToSort].sort((a, b) => new Date(a.postedDate) - new Date(b.postedDate));
+      case 'newest': // Smallest postedDays first (most recent)
+        return [...jobsToSort].sort((a, b) => a.postedDays - b.postedDays);
+      case 'latest': // Largest postedDays first (oldest)
+        return [...jobsToSort].sort((a, b) => b.postedDays - a.postedDays);
       case 'top_match':
       default:
-        return jobsToSort; // Assuming the default API response is already sorted by top match
+        return jobsToSort; // Assuming default sorting is already top match
     }
   };
 

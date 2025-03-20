@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   Offcanvas,
   OffcanvasBody,
+  OffcanvasHeader,
 } from "reactstrap";
 
 import SidebarNav from "./SidebarNav";
@@ -22,7 +23,7 @@ const Sidebar = () => {
         className="d-block d-lg-none"
       >
         <OffcanvasBody>
-          <SidebarNav />
+          <SidebarNav toggle={toggle} />
         </OffcanvasBody>
       </Offcanvas>
     </>

@@ -1,0 +1,22 @@
+[
+    {
+        "key": "ctrl+k",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "editor.action.blockComment",
+        "when": "editorTextFocus && editorHasSelection"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.uncommentLine",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.uncommentBlock",
+        "when": "editorTextFocus && editorHasSelection"
+    }
+] 

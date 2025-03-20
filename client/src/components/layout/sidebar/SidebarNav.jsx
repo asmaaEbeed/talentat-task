@@ -10,11 +10,13 @@ import {
   faServer,
   faCheck,
   faXmark,
+  faArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 import SidebarNavItems from "./SidebarNavItems";
 import { navItemsAPI } from "../../../services/api/NavItems.api";
+import { toast } from "react-toastify";
 
-const SidebarNav = () => {
+const SidebarNav = ({toggle}) => {
   const [navItems, setNavItems] = useState([]);
   const [expandedItems, setExpandedItems] = useState({});
   const [loading, setLoading] = useState(false);
@@ -77,10 +79,7 @@ const SidebarNav = () => {
       item.children.find(child => child.id === childId).visible = !item.children.find(child => child.id === childId).visible;
       setNavItems([...navItems]);
     }
-    // handle child visibility
-    if (!item && childId) {
-
-    }
+    
   };
 
 
@@ -109,20 +108,41 @@ const SidebarNav = () => {
 
   const handlePostNavItem = async (body) => {
     setPostNavLoading(true);
+    const copiedArray = body.map(obj => ({ ...obj }));
+    const data = removeVisible(copiedArray);
+    console.log(data)
     try {
-      const response = await navItemsAPI.postNavItem(body);
+      const response = await navItemsAPI.postNavItem(data);
+      toast.success("Nav items updated successfully");
     } catch (error) {
       console.error("Error posting nav item:", error);
+      toast.error("Error updating nav item");
     } finally {
       setPostNavLoading(false);
     }
   };
+
+  const removeVisible = (body) => {
+    body.forEach(item => {
+      if (item.visible) delete item.visible;
+      if (item.children) {
+        item.children.forEach(child => {
+          if (child.visible) delete child.visible;
+        });
+      }
+    });
+    return body;
+  };
+  
+
   // Function to render the appropriate icon based on the icon name
   return (
-    <Nav vertical className="sidebar-menu px-3">
+    <Nav vertical className="sidebar-menu px-3 text-dark-gray">
       <div className="d-flex justify-content-between align-items-center px-2">
         <div className="sidebar-menu-header">
-          <h4 className="sidebar-menu-title">Menu</h4>
+          <h4 className="sidebar-menu-title">
+            <FontAwesomeIcon icon={faArrowLeft} onClick={toggle} className="fs-4 mx-2"/>
+            Menu</h4>
         </div>
         <div className="sidebar-menu-close">
           {!isEditMode ? (
@@ -149,6 +169,7 @@ const SidebarNav = () => {
         </div>
       </div>
       <hr className="sidebar-menu-divider" />
+      {/* Check if it's edit mode show all items in view mode show only visible items */}
       {!loading ? (
         navItems.map((item, index) => (
           isEditMode ? <SidebarNavItems

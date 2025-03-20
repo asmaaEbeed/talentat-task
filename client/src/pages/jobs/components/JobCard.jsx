@@ -20,9 +20,9 @@ const JobCard = ({ job, image }) => {
   };
 
   return (
-    <Card className={`job-card mb-3 ${style.jobCard}`}>
-      <CardBody>
-        <div className="d-flex justify-content-between align-items-start">
+    <Card className={`job-card mb-3 ${style.jobCard} px-0 border-0 rounded-1`}>
+      <CardBody className="px-0">
+        <div className="d-flex justify-content-between align-items-start px-4">
           <div className="d-flex">
             <div className="job-company-logo me-3">
               {/* Company logo placeholder */}
@@ -62,28 +62,28 @@ const JobCard = ({ job, image }) => {
             {favorite ? <FaHeart color="#ff6b6b" /> : <FaRegHeart />}
           </Button>
         </div>
-        <div className="d-flex align-items-center my-2">
-          <FaMapMarkerAlt className="text-muted me-1" size={14} />
+        <div className="d-flex align-items-center my-2 px-4">
+          <FaMapMarkerAlt className="text-muted me-1" />
           <small className="text-muted ">{job.location}</small>
-          <FontAwesomeIcon icon={faCalendar} className="text-muted me-1 mx-2" size={14} />
+          <FontAwesomeIcon icon={faCalendar} className="text-muted me-1 mx-2"  />
           <small className="text-muted">{job.postedDays} days ago</small>
         </div>
 
-        <div className="job-details my-3">
-          <Badge color="light" className="me-2 text-gray rounded-1">
+        <div className="job-details my-3 px-4">
+          <Badge color="light" className="me-2 text-gray rounded-1 fw-medium">
             {job.experienceLevel}
           </Badge>
-          <Badge color="light" className="me-2 text-gray rounded-1">
+          <Badge color="light" className="me-2 text-gray rounded-1 fw-medium">
             {job.jobType}
           </Badge>
-          <Badge color="light" className="text-gray">{job.workMode}</Badge>
+          <Badge color="light" className="text-gray fw-medium">{job.workMode}</Badge>
         </div>
         <hr className="sidebar-menu-divider" />
-        <div className="job-categories">
+        <div className="job-categories px-4">
           {job.categories.map((category, index) => (
-            <Badge key={index} color="success" pill className="me-2">
-              {category}
-            </Badge>
+            <span key={index}  >
+              {category}<span className="mx-2 text-muted"> {index !== job.categories.length - 1 && " - "}</span>
+            </span>
           ))}
         </div>
       </CardBody>

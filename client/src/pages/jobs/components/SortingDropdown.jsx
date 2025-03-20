@@ -27,7 +27,7 @@ const SortingDropdown = ({ onSort, currentSort = 'top_match' }) => {
       <DropdownToggle 
         caret 
         color="white"
-        className="d-flex align-items-center gap-2 border rounded-2 px-3 py-2 position-relative"
+        className="d-flex align-items-center gap-2 border rounded-1 px-3 py-2 position-relative"
       >
         <span className="text-dark">Sorting by: </span>
         <span className="text-success fw-medium">{getCurrentSortLabel()}</span>

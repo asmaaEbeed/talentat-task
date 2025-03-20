@@ -70,12 +70,19 @@ app.get("/nav", (req, res) => {
 });
 
 app.post("/nav", (req, res) => {
-  const items = req.body;
-  console.log(items);
-  if (!(items instanceof Array)) return res.status(400).send("Bad Request");
-  else {
-    fs.writeFileSync("nav.json", JSON.stringify(items));
-    return res.status(204).send("Nav edited successfully");
+  try {
+    const items = req.body;
+    console.log("Received Data:", items); // Log received data
+
+    if (!Array.isArray(items)) {
+      return res.status(400).json({ error: "Bad Request: Data must be an array" });
+    }
+
+    fs.writeFileSync("nav.json", JSON.stringify(items, null, 2), "utf8");
+    res.status(200).json({ message: "Nav edited successfully" });
+  } catch (error) {
+    console.error("Error writing to file:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

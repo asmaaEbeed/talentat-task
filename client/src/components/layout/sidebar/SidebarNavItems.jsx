@@ -28,7 +28,9 @@ const SidebarNavItems = ({
 }) => {
   const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+
+  const [longPressTimer, setLongPressTimer] = useState(null);
+
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.NAV_ITEM,
     collect(monitor) {
@@ -121,7 +123,7 @@ const SidebarNavItems = ({
       ref={ref}
       className={`${
         style.cardDragging
-      } opacity-100 transition-transform duration-200 ease-in-out ${
+      } opacity-100 text-dark-gray transition-transform duration-200 ease-in-out ${
         isHovered ? style.translate5 : style.translate0
       } ${
         isDragging ? "cursor-grabbing" : isEditMode ? "cursor-grab" : "default"
@@ -223,21 +225,23 @@ const SidebarNavItems = ({
                       )}
                     </div>
                   </NavItem>
-                ) : child.visible && (
-                  <NavItem
-                    key={child.id}
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <Link
-                      to={child.path}
-                      className={`${
-                        child.visible ? "text-dark" : "text-light-gray"
-                      } nav-link`}
+                ) : (
+                  child.visible && (
+                    <NavItem
+                      key={child.id}
+                      className="d-flex align-items-center justify-content-between"
                     >
-                      {child.title}
-                    </Link>
-                  </NavItem>
-                ) 
+                      <Link
+                        to={child.path}
+                        className={`${
+                          child.visible ? "text-dark" : "text-light-gray"
+                        } nav-link`}
+                      >
+                        {child.title}
+                      </Link>
+                    </NavItem>
+                  )
+                )
               )}
             </>
           </Nav>
