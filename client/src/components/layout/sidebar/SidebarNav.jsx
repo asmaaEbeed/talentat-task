@@ -141,7 +141,7 @@ const SidebarNav = ({toggle}) => {
       <div className="d-flex justify-content-between align-items-center px-2">
         <div className="sidebar-menu-header">
           <h4 className="sidebar-menu-title">
-            <FontAwesomeIcon icon={faArrowLeft} onClick={toggle} className="fs-4 mx-2"/>
+            <FontAwesomeIcon icon={faArrowLeft} onClick={toggle} className="fs-4 mx-2 d-lg-none d-block"/>
             Menu</h4>
         </div>
         <div className="sidebar-menu-close">
