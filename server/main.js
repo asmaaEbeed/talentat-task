@@ -9,7 +9,7 @@ const errorChance = 0.1;
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: "https://talentat-task-kyld-git-master-engasmaaebeedgmailcoms-projects.vercel.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
