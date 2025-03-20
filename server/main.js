@@ -6,21 +6,9 @@ const cors = require("cors");
 const PORT = process.env.PORT || 8081;
 const errorChance = 0.1;
 
-const app = express();
-app.use(
-  cors({
-    origin: "https://talentat-task-kyld-git-master-engasmaaebeedgmailcoms-projects.vercel.app",
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    credentials: true,
-  })
-);
+let app = express();
+app.use(cors());
+app.options('*', cors());
 
 
 app.use(express.json());

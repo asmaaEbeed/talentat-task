@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "dev": "node main.js",
-    "server": "node main.js"
+    "dev": "nodemon main.js",
+    "server": "nodemon main.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
   }
 }
