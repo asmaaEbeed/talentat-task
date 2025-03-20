@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8081';
+const BASE_URL = 'https://talentat-task-n6f6cgoce-engasmaaebeedgmailcoms-projects.vercel.app';
 
 // Public instance - no token required
 export const publicAxios = axios.create({

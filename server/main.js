@@ -7,7 +7,22 @@ const PORT = process.env.PORT || 8081;
 const errorChance = 0.1;
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Cache-Control",
+      "Expires",
+      "Pragma",
+    ],
+    credentials: true,
+  })
+);
+
+
 app.use(express.json());
 app.use((req, res, next) => {
   if (Math.random() <= errorChance) return res.status(500).send(undefined);
