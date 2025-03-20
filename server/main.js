@@ -83,7 +83,74 @@ app.post("/nav", (req, res) => {
 app.get("/jobs", (req, res) => {
   if (fs.existsSync("jobs.json"))
     return res.json(JSON.parse(fs.readFileSync("jobs.json", "utf8")));
-  else return res.json(jobs);
+  else return res.json([
+    {
+      "id": 1,
+      "title": "Gaming UI designer",
+      "company": "Rockstar Games", 
+      "location": "ElMansura, Egypt",
+      "postedDays": 10,
+      "jobType": "Full time",
+      "workMode": "Remote",
+      "experienceLevel": "0 - 3y of exp",
+      "categories": ["Creative / Design", "IT / Software development", "Gaming"]
+    },
+    {
+      "id": 2,
+      "title": "Senior UX UI Designer",
+      "company": "Eqabi",
+      "location": "Cairo, Egypt", 
+      "postedDays": 30,
+      "jobType": "Full time",
+      "workMode": "Hybrid",
+      "experienceLevel": "0 - 3y of exp",
+      "categories": ["Creative / Design", "IT / Software development"]
+    },
+    {
+      "id": 3,
+      "title": "React Frontend developer",
+      "company": "Magura",
+      "location": "Cairo, Egypt",
+      "postedDays": 30,
+      "jobType": "Freelance", 
+      "workMode": "Remote",
+      "experienceLevel": "5 - 7y of exp",
+      "categories": ["Creative / Design", "IT / Software development"]
+    },
+    {
+      "id": 4,
+      "title": "Gaming UI designer",
+      "company": "Rockstar Games",
+      "location": "ElMansura, Egypt",
+      "postedDays": 10,
+      "jobType": "Full time",
+      "workMode": "Remote",
+      "experienceLevel": "0 - 3y of exp",
+      "categories": ["Creative / Design", "IT / Software development", "Gaming"]
+    },
+    {
+      "id": 5,
+      "title": "Senior UX UI Designer", 
+      "company": "Eqabi",
+      "location": "Cairo, Egypt",
+      "postedDays": 30,
+      "jobType": "Full time",
+      "workMode": "Hybrid",
+      "experienceLevel": "0 - 3y of exp",
+      "categories": ["Creative / Design", "IT / Software development"]
+    },
+    {
+      "id": 6,
+      "title": "React Frontend developer",
+      "company": "Magura",
+      "location": "Cairo, Egypt",
+      "postedDays": 30,
+      "jobType": "Freelance",
+      "workMode": "Remote",
+      "experienceLevel": "5 - 7y of exp",
+      "categories": ["Creative / Design", "IT / Software development"]
+    }
+  ]);
 });
 
 app.listen(PORT);
