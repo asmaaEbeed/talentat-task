@@ -1,0 +1,183 @@
+
+
+.pr2 {
+    padding-right: 20px;
+}
+
+.header {
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    height: 98px;
+}
+
+.header div.container-fluid {
+    flex-direction: row !important;
+}
+
+
+/*** nav-items ***/
+.navIcons {
+    display: flex;
+}
+.navIconsVertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.navIconsVertical svg, .navIconsVertical span {
+    padding: 0.2rem;
+    color: var(--dark-secondary-color) !important;
+}
+.navIconsVertical path {
+    fill: transparent;
+    stroke: #151515;
+    stroke-width: 30px;
+}
+.navIconsVertical .iconOutlined path {
+    fill: transparent;
+    stroke: #151515;
+    stroke-width: 30px;
+}
+.navIconsVertical .navLink:hover path {
+    fill: #151515;
+    stroke: none;
+    stroke-width: 30px;
+}
+
+.outlined_icon {
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    /* Creates an outline effect */
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.iconOutlined path {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 30px;
+}
+.navLink:hover path {
+    fill: #fff;
+    stroke: none;
+    stroke-width: 30px;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.6em;
+    margin-left: -2rem;
+    margin-top: 0.5rem;
+    color: #fff;
+}
+.navLink {
+    padding: 0.6rem;
+}
+.logo:focus-visible {
+    outline: none;
+}
+@media (max-width: 1215px) and (min-width: 992px) {
+    .logo img {
+        width: 60px
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+    .navLink {
+        padding: 0.2rem;
+    }
+}
+@media (max-width: 991.5px){
+    .navIconsVertical .badge {
+        font-size: 0.75rem;
+        color: #fff !important;
+        left: 58px;
+        bottom: 18px;
+        width: 20px;
+        height: 20px;
+    
+    }
+}
+
+
+/*** Search Bar ***/
+.searchBar {
+    max-width: 300px;
+}
+
+.searchIcon {
+    width: 47px;
+    height: 47px;
+    position: absolute;
+    left: 6px;
+    z-index: 6;
+    top: 4px;
+
+}
+
+.searchInput {
+    padding: 15px 15px 15px 60px !important;
+}
+
+@media (max-width: 1215px) and (min-width: 992px) {
+    .searchInput {
+        padding: 10px 5px 10px 46px !important;
+    }
+
+    .searchIcon {
+        width: 36px;
+            height: 36px
+    }
+}
+
+/*** Profile Icon ***/
+.profileIcon {
+    width: 30px;
+    height: 30px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.profileDropdown {
+    min-width: 200px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdownProfileImg {
+    width: 70px;
+    height: 70px;
+}
+.verticalUserMenuIcon {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    right: -3px;
+    bottom: -3px;
+}
+.verticalUserMenuIcon svg {
+    font-size: 10px;
+}
+@media (max-width: 1215px) and (min-width: 991.5px) {
+    .profileIcon{
+        width: 20px;
+        height: 20px
+    }
+}
+@media (max-width: 991.5px){
+    .profileIcon{
+        width: 45px;
+        height: 45px
+    }
+}

@@ -1,0 +1,22 @@
+.cardDragging {
+    touch-action: none;
+    user-select: none;
+}
+.translate5 {
+    transition: transform 0.2s ease;
+    transform: translateY(5px);
+}
+.translate0 {
+    transition: transform 0.2s ease;
+    transform: translateY(0);
+}
+
+.sidebar {
+    width: 290px;
+    background-color: white;
+    padding: 20px 0;
+    border-right: 1px solid #e0e0e0;
+}
+.sidebarNavItemsIcons {
+    cursor: pointer;
+}
